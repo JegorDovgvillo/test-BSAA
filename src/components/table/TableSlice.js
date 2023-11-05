@@ -12,10 +12,8 @@ export const fetchData = createAsyncThunk("info/fetchData", async () => {
       throw new Error(`Request failed with status: ${response.status}`);
     }
     const data = await response.json();
-    return data
-  } catch (error) {
-    
-  }
+    return data;
+  } catch (error) {}
 });
 
 export const tableSlice = createSlice({

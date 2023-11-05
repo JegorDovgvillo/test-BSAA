@@ -30,8 +30,8 @@ const Table = ({ teachers, ...item }) => {
   const [isActive, setIsActive] = useState(false);
   const [filter, setFilter] = useState(-100);
   const [filterSecond, setFilterSecond] = useState(-100);
-  const [podgroupsFirst, setPodgrupsFirst] = useState(0);
-  const [podgroupsSecond, setPodgrupsSecond] = useState(0);
+  const [podgroupsFirst, setPodgrupsFirst] = useState("0");
+  const [podgroupsSecond, setPodgrupsSecond] = useState("0");
   const [note, setNote] = useState("");
 
   useEffect(() => {
@@ -44,7 +44,10 @@ const Table = ({ teachers, ...item }) => {
       valuesSecond,
       note,
     };
-
+    if (isActive) {
+      postData.podgroupsFirst = podgroupsFirst;
+      postData.podgroupsSecond = podgroupsSecond;
+    }
     fetch("https://bgaa.by/test_result", {
       method: "POST",
       headers: {
@@ -116,7 +119,7 @@ const Table = ({ teachers, ...item }) => {
         name="teachers"
         value={
           item == 0 || item == ""
-            ? "default"
+            ? "null"
             : text.slice(-13).toLowerCase() == "secondteacher"
             ? valuesSecond[text]
             : values[text]
@@ -377,12 +380,14 @@ const Table = ({ teachers, ...item }) => {
               <p className="table-body__item-wrap-hours"></p>
               <div className="table-body__item-wrap-teachers">
                 <input
+                  type="text"
                   value={podgroupsFirst}
                   onChange={(e) => setPodgrupsFirst(e.target.value)}
                 />
               </div>
               <div className="table-body__item-wrap-teachers">
                 <input
+                  type="text"
                   value={podgroupsSecond}
                   onChange={(e) => setPodgrupsSecond(e.target.value)}
                 />
