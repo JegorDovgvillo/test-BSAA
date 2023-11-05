@@ -1,0 +1,130 @@
+.table {
+  display: flex;
+  flex-direction: column;
+  border: solid 1px gray;
+  border-radius: 5px;
+  width: fit-content;
+  padding: 20px;
+  margin-right: 50px;
+  &-title {
+    display: flex;
+    background-color: #e7f1ff;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px 5px 0 0;
+    border-bottom: solid 1px #ced2d8;
+    margin-bottom: 5px;
+    h2 {
+      font-size: 25px;
+      color: #3c4b64;
+      font-weight: bold;
+      padding: 15px 5px;
+    }
+  }
+  &-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 100px;
+    row-gap: 10px;
+    border-bottom: solid 1px #ced2d8;
+    padding-bottom: 20px;
+    &__item {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+      justify-content: flex-start;
+      gap: 60px;
+
+      &-name {
+        font-size: 20px;
+        color: #3c4b64;
+        font-weight: bold;
+        width: 205px;
+      }
+      &-value {
+        font-size: 15px;
+        color: #3c4b64;
+        font-weight: bold;
+      }
+    }
+  }
+  &-body {
+    &__item {
+      display: grid;
+      margin-bottom: 30px;
+      &-wrap {
+        display: flex;
+        flex-direction: row;
+        &-subjects,
+        &-hours,
+        &-teachers {
+          display: grid;
+          border: solid 1px #dee2e6;
+          padding: 10px;
+          align-items: center;
+          text-align: center;
+        }
+        &-teachers.filter {
+          grid-template-columns: 1fr 0.1fr;
+          select {
+            margin-right: 5px;
+          }
+        }
+        &-title {
+          display: flex;
+          flex-direction: row;
+          color: #3c4b64;
+          font-weight: bold;
+          border-bottom: solid 3px #3c4b64;
+          .table-body__item-wrap-teachers {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            align-items: flex-end;
+            justify-content: center;
+          }
+        }
+        &-subjects {
+          min-width: 240px;
+        }
+        &-hours {
+          min-width: 40px;
+        }
+        textarea {
+          resize: vertical;
+          width: 100%;
+          border-radius: 5px;
+          min-height: 60px;
+        }
+        &-teachers {
+          width: 100%;
+          select {
+            padding: 10px 35px;
+            border-radius: 5px;
+            text-align: center;
+          }
+          input {
+            border: none;
+            background-color: transparent;
+            text-align: center;
+            outline-color: transparent;
+          }
+        }
+      }
+      &-wrap:nth-child(even) {
+        background-color: #f9feff;
+      }
+      &-wrap:nth-child(odd) {
+        background-color: #f5fdff;
+      }
+    }
+  }
+  button {
+    width: 200px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    background-color: #198754;
+    margin-bottom: 20px;
+  }
+}
