@@ -51,22 +51,19 @@ const Table = ({ teachers, ...item }) => {
     fetch("https://bgaa.by/test_result", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json", // Указываем тип контента как JSON
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(postData),
     })
       .then((response) => {
         if (response.ok) {
           console.log("Данные успешно отправлены на сервер.");
-          // Добавьте код для обработки успешной отправки данных на сервер, если необходимо
         } else {
           console.error("Произошла ошибка при отправке данных на сервер.");
-          // Добавьте код для обработки ошибки, если необходимо
         }
       })
       .catch((error) => {
         console.error("Произошла ошибка при выполнении fetch:", error);
-        // Добавьте код для обработки ошибки, если необходимо
       });
   };
   const handleChange = (e, field) => {
@@ -129,10 +126,6 @@ const Table = ({ teachers, ...item }) => {
         {option}
       </select>
     );
-  }
-
-  if (!teachers) {
-    return <div>hello</div>;
   }
 
   const option = renderOption(teachers);
